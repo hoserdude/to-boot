@@ -9,9 +9,6 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 /**
  * This is only activated in the heroku environment, otherwise Spring Boot
@@ -27,13 +24,8 @@ public class HerokuDatabaseConfig {
     }
 
     @Bean
-    public Connection getConnection() throws URISyntaxException, SQLException {
+    public URI dbUrl() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
-
-        return DriverManager.getConnection(dbUrl, username, password);
+        return dbUri;
     }
 }
