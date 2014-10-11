@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
 
+        // If we weren't using OpenID
 //        http.formLogin()
 //                .loginPage("/login")
 //                .failureUrl("/login?error")
@@ -70,6 +71,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .attribute("fullname")
                 .type("http://schema.openid.net/namePerson")
                 .required(true);
+
+        http.logout()
+                .logoutUrl("/logout").permitAll()
+                .logoutSuccessUrl("/");
     }
 
 //    @Override
