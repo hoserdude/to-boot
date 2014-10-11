@@ -3,7 +3,8 @@ spring:
 ---
 spring:
   profiles: default
-  thymeleaf:
+
+spring.thymeleaf:
     cache: false
 
 spring.datasource:
@@ -28,5 +29,6 @@ management:
 ---
 spring:
    profiles: heroku
-     thymeleaf:
-       cache: true
+
+spring.thymeleaf:
+  cache: true
