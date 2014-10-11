@@ -18,7 +18,7 @@
     </div>
     <div th:include="footer :: #toboot_footer" class="footer"></div>
 </div>
-<script data-main="js/main" src="js/lib/requirejs/require.js" type="application/javascript"></script>
+<script data-main="js/main" th:src="@{/js/lib/requirejs/require.js}" src="js/lib/requirejs/require.js" type="application/javascript"></script>
 </body>
 </html>
 
