@@ -4,6 +4,11 @@
 
 # Heroku Setup info
 
+Procfile
+```
+web: java $JAVA_OPTS -jar target/to-boot-1.0.0.jar
+```
+
 A one time config change was made to enable MongoDB and the Spring config activation:
 
 ```
