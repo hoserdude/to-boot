@@ -6,14 +6,14 @@
 
 Procfile
 ```
-web: java $JAVA_OPTS -jar target/to-boot-1.0.0.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/to-boot-1.0.0.jar
 ```
 
 A one time config change was made to enable MongoDB and the Spring config activation:
 
 ```
 heroku addons:add mongohq
-heroku config:set JAVA_OPTS='-Xmx384m -Xss512k -XX:+UseCompressedOops -Dserver.port=$PORT -Dspring.profiles.active=heroku'
+heroku config:set JAVA_OPTS='-Xmx384m -Xss512k -XX:+UseCompressedOops -Dspring.profiles.active=heroku'
 ```
 # Getting started
 After cloning this repo:
@@ -37,8 +37,8 @@ heroku ps:scale web=1
 
 ## Web
 
-* http://toboot.herokuapp.com/
+* http://to-boot.herokuapp.com/
  
 ## API
 
-See http://toboot.herokuapp.com/api for the swagger UI
+See http://to-boot.herokuapp.com/api for the swagger UI
