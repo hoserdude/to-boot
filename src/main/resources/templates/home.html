@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-framework="angularjs">
+<head>
+    <title>Home</title>
+    <style>[ng-cloak] {
+        display: none;
+    }</style>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/jumbotron-narrow.css}" href="css/jumbotron-narrow.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div th:include="header :: #toboot_header" class="header"></div>
+    <div id="todoapp" ng-controller="TodoController">
+        <h1 class="text-center">Welcome <span th:text="${name}"></span>
+            <p class="lead">Let's Get Stuff Done!</p>
+        </h1>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2  text-center">
+                <span id="todo-count"><strong>{{remainingCount}}</strong>
+                  <ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+                </span>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-btn">
+                    <button class="btn btn-success btn-lg"><i class="fa fa-chevron-right"></i></button>
+                  </span>
+
+                    <form id="todo-form" ng-submit="addTodo()">
+                        <input class="form-control input-lg" id="new-todo" placeholder="What needs to be done?"
+                               ng-model="newTodoTitle" autofocus=""/>
+                    </form>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default btn-lg" ng-click="addTodo()"><i class="fa fa-plus"></i></button>
+                  </span>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-repeat="todo in todos | filter:statusFilter track by $index"
+             ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <input class="toggle" type="checkbox" ng-model="todo.completed" ng-click="todoCompleted(todo)"/>
+                  </span>
+
+                    <form ng-submit="doneEditing(todo)">
+                        <input class="edit form-control input-lg" ng-trim="false" ng-model="todo.title"
+                               ng-blur="doneEditing(todo)" todo-escape="revertEditing(todo)"
+                               todo-focus="todo == editedTodo"/>
+                    </form>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default btn-lg destroy" ng-click="deleteTodo(todo)"><i
+                            class="fa fa-times"></i></button>
+                  </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <hr/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">
+                <button class="btn btn-default btn-lg" id="toggle-all" ng-model="allChecked"
+                        ng-click="markAll(allChecked)"><i class="fa fa-check"></i></button>
+                Mark all as complete
+            </div>
+            <div class="col-sm-2  text-center">
+                <button class="btn btn-sm btn-success" id="clear-completed" ng-click="clearCompletedTodos()">Clear completed ({{todos.length - remainingCount}})
+                </button>
+            </div>
+            <div class="col-sm-4 text-right">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <hr/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 text-center" ng-show="todos.length" ng-cloak="">
+                <ul class="list-inline" id="filters">
+                    <li>
+                        <a class="btn btn-sm" ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-sm" ng-class="{selected: location.path() == '/active'}" href="#/active">Active
+                            <span class="badge badge-info">{{remainingCount}}</span></a>
+                    </li>
+                    <li>
+                        <a class="btn btn-sm" ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div th:include="footer :: #toboot_footer" class="footer"></div>
+</div>
+<script data-main="js/main" src="js/lib/requirejs/require.js" type="application/javascript"></script>
+</body>
+</html>
+

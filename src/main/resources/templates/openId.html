@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login with Open Id</title>
+    <link rel="stylesheet" th:href="@{/css/openid.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/jumbotron-narrow.css}" href="css/jumbotron-narrow.css" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Sign-in or Create New Account</h3>
+                </div>
+                <div class="panel-body">
+                    <form name="f" th:action="@{/login/openid}" method="post" id="openid_form">
+                        <input type="hidden" name="action" value="verify"/>
+                        <fieldset>
+                            <div th:if="${param.error}" class="alert alert-error">
+                                Invalid username and password.
+                            </div>
+                            <div th:if="${param.logout}" class="alert alert-success">
+                                You have been logged out.
+                            </div>
+                            <div id="openid_choice">
+                                <p>Please click your account provider:</p>
+                                <div id="openid_btns"></div>
+                            </div>
+
+                            <div id="openid_input_area">
+                                <input id="openid_identifier" name="openid_identifier" type="text" value="http://"/>
+                                <input id="openid_submit" type="submit" value="Sign-In"/>
+                            </div>
+                            <noscript>
+                                <p>OpenID is a service that allows you to log-on to many different websites using a
+                                    single identity.
+                                    Find out <a href="http://openid.net/what/">more about OpenID</a> and <a
+                                            href="http://openid.net/get/">how to get an OpenID enabled account</a>.</p>
+                            </noscript>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!--Would normally let require.js do it's thing but it never seems to get jquery in time...-->
+<script src="js/lib/jquery/jquery.js" type="text/javascript"></script>
+<script data-main="js/main" src="js/lib/requirejs/require.js" type="application/javascript"></script>
+</html>

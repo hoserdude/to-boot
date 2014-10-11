@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/jumbotron-narrow.css}" href="css/jumbotron-narrow.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div th:include="header :: #toboot_header" class="header"></div>
+    <div class="jumbotron">
+        <h1 th:text="${title}">Title</h1>
+        <p th:text="${message}">Fake content</p>
+        <p>A demonstration application showcasing Spring Boot, Thymeleaf, AngularJS, Spring Repositories using
+            MongoDB and PostgresSQL, Spring Security and OpenId, and Swagger API documentation for GREAT JUSTICE</p>
+        <p><a class="btn btn-primary btn-lg" role="button" th:href="@{/openId}" href="/openId">Sign In</a></p>
+    </div>
+    <div th:include="footer :: #toboot_footer" class="footer"></div>
+</div>
+<script data-main="js/main" src="js/lib/requirejs/require.js" type="application/javascript"></script>
+</body>
+</html>
+

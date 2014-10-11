@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <body>
+        <div id="toboot_header">
+            <nav class="navbar navbar-default" role="navigation">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" th:href="@{/}" href="/"><i class="fa fa-list"></i>&nbsp; ToBoot </a>
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/home}" href="home.html"><i class="fa fa-home"></i>&nbsp; Home </a></li>
+                        <li><a th:href="@{/api}" href="api.html"><i class="fa fa-code"></i>&nbsp; API </a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div sec:authorize="isAuthenticated()">
+                                <form th:action="@{/logout}" method="post">
+                                    <input type="submit" value="Sign Out" class="btn btn-default navbar-btn"/>
+                                </form>
+                            </div>
+                            <div sec:authorize="isAnonymous()">
+                                <a th:href="@{/openId}" href="openId" class="btn btn-default navbar-btn"><i class="fa fa-sign-in"></i>&nbsp;Log In</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </body>
+</html>
