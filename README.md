@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/hoserdude/to-boot.svg?branch=master)](https://travis-ci.org/hoserdude/to-boot)
 
 # Spring Boot AngularJS MongoDB PostgresSQL OpenId TodoMVC
 * <a href="http://projects.spring.io/spring-boot/">Spring Boot</a> server-side application with <a href="http://www.mongodb.org/">MongoDB</a> and <a href="http://www.postgresql.org/">PostgresSQL</a> persistence. Fronted by an AngularJS+RequireJS version of <a href"http://todomvc.com">TodoMVC</a> that has a remote persistence service (rather than local storage).  Also includes Spring-Security-OpenId for a demonstration of how to manage User accounts in such a scenario.
