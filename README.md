@@ -8,8 +8,7 @@
 * If you can fix bugs, all the better!
 
 # Known issues
-* JS resources are not served from Heroku for some reason, looking into that.
-* Editing TODOS seems to get stuck sometimes, seems to be an Angular thing I'm doing wrong.
+See [Issues List](https://github.com/hoserdude/to-boot/issues)
 
 # Local Setup Info
 To-Boot requires:
