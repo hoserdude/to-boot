@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/hoserdude/to-boot.svg?branch=master)](https://travis-ci.org/hoserdude/to-boot)
 
 # Spring Boot AngularJS MongoDB PostgresSQL OpenId TodoMVC
-* <a href="http://projects.spring.io/spring-boot/">Spring Boot</a> server-side application with <a href="http://www.mongodb.org/">MongoDB</a> and <a href="http://www.postgresql.org/">PostgresSQL</a> persistence. Fronted by an AngularJS+RequireJS version of <a href"http://todomvc.com">TodoMVC</a> that has a remote persistence service (rather than local storage).  Also includes Spring-Security-OpenId for a demonstration of how to manage User accounts in such a scenario.  Bonus inclusion of Swagger to demo how to document an API.
+* [Spring Boot](http://projects.spring.io/spring-boot) server-side application with [MongoDB](http://www.mongodb.org) and [PostgresSQL](http://www.postgresql.org) persistence. Fronted by an AngularJS+RequireJS version of [TodoMVC](http://todomvc.com) that has a remote persistence service (rather than local storage).  Also includes Spring-Security-OpenId based on [Rob Winch's Boot demo](https://github.com/rwinch/spring-boot-openid) for a demonstration of how to manage User accounts in such a scenario.  Bonus inclusion of [Swagger](http://swagger.io) leveraging [Swagger-SpringMVC](https://github.com/martypitt/swagger-springmvc) to demo how to document an API.
 
 # Contribute!
 * If you have ideas on how to make this better, pull requests are welcome!
@@ -17,9 +17,9 @@ To-Boot requires:
 
 Install those two services with your favorite package managers or directly from the source.
 
-Life is easy if you setup Postgres to have username: postgres and password: password or you can edit the application.yml in the src/resources directory
+Life is easy if you setup Postgres to have username: postgres and password: password or you can edit the `application.yml` in the src/resources directory
 
-Locally, you can run it from an IDE (Intellij, Eclipse) as an application (Application.java), you don't have to deploy it to a web container.
+Locally, you can run it from an IDE (Intellij, Eclipse) as an application (`Application.java`), you don't have to deploy it to a web container.
  
 # Heroku Setup Info
 
