@@ -1,17 +1,13 @@
 package com.hoserdude.toboot;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Our app's entrypoint, because it is at the root of the package
  * hierarchy we don't have to tell Spring where to ComponentScan.
  */
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
+@SpringBootApplication
 public class Application {
     
     public static void main(String[] args) {

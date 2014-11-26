@@ -1,8 +1,13 @@
 spring:
   profiles.active: default
+
 ---
 spring:
   profiles: default
+
+spring.data.mongodb:
+  host: localhost
+  port: 27017
 
 spring.thymeleaf:
     cache: false
@@ -13,19 +18,12 @@ spring.datasource:
   username: postgres
   password: password
 
-spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      repositories:
-        enabled : false
-
 management:
   port: 8081
   contextPath: /manage
   security:
     enabled: false
+
 ---
 spring:
    profiles: heroku
